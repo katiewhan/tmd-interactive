@@ -4,7 +4,6 @@ import Interactive from './Interactive';
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
       <div className='content'>
         <h2>How to be a smarter WhatsApp User</h2>
         <div className='info'>
