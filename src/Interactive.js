@@ -2,15 +2,15 @@ import React from 'react';
 
 const QuizImages = [
     {
-        src: '/images/transmission-slide11.png',
+        src: './images/transmission-slide11.png',
         credible: true
     },
     {
-        src: '/images/covid-drzhong.jpg',
+        src: './images/covid-drzhong.jpg',
         credible: false
     },
     {
-        src: '/images/covid-garlic.jpg',
+        src: './images/covid-garlic.jpg',
         credible: true
     }
 ];
