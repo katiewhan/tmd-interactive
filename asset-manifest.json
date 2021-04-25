@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/tmd-interactive/static/css/main.5010c263.chunk.css",
-    "main.js": "/tmd-interactive/static/js/main.5ebf8254.chunk.js",
-    "main.js.map": "/tmd-interactive/static/js/main.5ebf8254.chunk.js.map",
+    "main.css": "/tmd-interactive/static/css/main.8beb87bd.chunk.css",
+    "main.js": "/tmd-interactive/static/js/main.45ef49be.chunk.js",
+    "main.js.map": "/tmd-interactive/static/js/main.45ef49be.chunk.js.map",
     "runtime-main.js": "/tmd-interactive/static/js/runtime-main.3ee447de.js",
     "runtime-main.js.map": "/tmd-interactive/static/js/runtime-main.3ee447de.js.map",
     "static/js/2.f93c820f.chunk.js": "/tmd-interactive/static/js/2.f93c820f.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.f2f411b5.chunk.js": "/tmd-interactive/static/js/3.f2f411b5.chunk.js",
     "static/js/3.f2f411b5.chunk.js.map": "/tmd-interactive/static/js/3.f2f411b5.chunk.js.map",
     "index.html": "/tmd-interactive/index.html",
-    "static/css/main.5010c263.chunk.css.map": "/tmd-interactive/static/css/main.5010c263.chunk.css.map",
+    "static/css/main.8beb87bd.chunk.css.map": "/tmd-interactive/static/css/main.8beb87bd.chunk.css.map",
     "static/js/2.f93c820f.chunk.js.LICENSE.txt": "/tmd-interactive/static/js/2.f93c820f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3ee447de.js",
     "static/js/2.f93c820f.chunk.js",
-    "static/css/main.5010c263.chunk.css",
-    "static/js/main.5ebf8254.chunk.js"
+    "static/css/main.8beb87bd.chunk.css",
+    "static/js/main.45ef49be.chunk.js"
   ]
 }
