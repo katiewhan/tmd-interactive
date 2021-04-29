@@ -1,4 +1,4 @@
-.App {
+.App, .content, .section {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -10,26 +10,75 @@
   max-width: 800px;
 }
 
+.section {
+  padding-bottom: 50px;
+}
+
 .info {
-  margin: 50px;
+  width: 80%;
+  margin: 20px 0;
   padding: 20px;
-  background-color: rgba(0.2, 0.2, 0.2, 0.2);
+  background-color: rgba(30, 30, 30, 0.2);
+}
+
+.image-wrapper {
+  width: min(90vw, 90vh);
+  height: min(90vw, 90vh);
+  background-color: rgba(30, 30, 30, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  perspective: 1000px;
+}
+
+.flip-image {
+  transform: rotateY(180deg);
+  animation: fadeOut 1s ease;
+  animation-delay: 2s;
 }
 
 .guess-image {
-  max-width: 90%;
-  max-height: 500px;
+  width: 90%;
+  height: 80%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.guess-image img {
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  backface-visibility: hidden;
+}
+
+.image-back {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:  rgba(30, 30, 30);
+  color: white;
+  line-height: 2;
+  transform: rotateY(180deg);
+  /* backface-visibility: hidden; */
 }
 
 .buttons {
+  justify-self: flex-end;
+  align-self: stretch;
   display: flex;
   flex-direction: row;
+}
+
+.hide-buttons {
+  visibility: none;
 }
 
 .guess-button {
   flex: 1;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 40px;
   color: white;
 }
 
@@ -44,4 +93,49 @@
 
 .guess-button.not-credible {
   background: red;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
 }
