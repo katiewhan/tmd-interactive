@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "./static/css/main.ebc28be9.chunk.css",
-    "main.js": "./static/js/main.9ff2d9ee.chunk.js",
-    "main.js.map": "./static/js/main.9ff2d9ee.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.67003a3f.js",
-    "runtime-main.js.map": "./static/js/runtime-main.67003a3f.js.map",
-    "static/js/2.da8a582c.chunk.js": "./static/js/2.da8a582c.chunk.js",
-    "static/js/2.da8a582c.chunk.js.map": "./static/js/2.da8a582c.chunk.js.map",
-    "static/js/3.f2f411b5.chunk.js": "./static/js/3.f2f411b5.chunk.js",
-    "static/js/3.f2f411b5.chunk.js.map": "./static/js/3.f2f411b5.chunk.js.map",
+    "main.css": "./static/css/main.4e1630bb.chunk.css",
+    "main.js": "./static/js/main.bf720cce.chunk.js",
+    "main.js.map": "./static/js/main.bf720cce.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.a79c5cd3.js",
+    "runtime-main.js.map": "./static/js/runtime-main.a79c5cd3.js.map",
+    "static/js/2.3f8dd01c.chunk.js": "./static/js/2.3f8dd01c.chunk.js",
+    "static/js/2.3f8dd01c.chunk.js.map": "./static/js/2.3f8dd01c.chunk.js.map",
+    "static/js/3.3f1a1008.chunk.js": "./static/js/3.3f1a1008.chunk.js",
+    "static/js/3.3f1a1008.chunk.js.map": "./static/js/3.3f1a1008.chunk.js.map",
     "index.html": "./index.html",
-    "static/css/main.ebc28be9.chunk.css.map": "./static/css/main.ebc28be9.chunk.css.map",
-    "static/js/2.da8a582c.chunk.js.LICENSE.txt": "./static/js/2.da8a582c.chunk.js.LICENSE.txt"
+    "static/css/main.4e1630bb.chunk.css.map": "./static/css/main.4e1630bb.chunk.css.map",
+    "static/js/2.3f8dd01c.chunk.js.LICENSE.txt": "./static/js/2.3f8dd01c.chunk.js.LICENSE.txt",
+    "static/media/Interactive.css": "./static/media/whatsapp-logo.599e94fd.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.67003a3f.js",
-    "static/js/2.da8a582c.chunk.js",
-    "static/css/main.ebc28be9.chunk.css",
-    "static/js/main.9ff2d9ee.chunk.js"
+    "static/js/runtime-main.a79c5cd3.js",
+    "static/js/2.3f8dd01c.chunk.js",
+    "static/css/main.4e1630bb.chunk.css",
+    "static/js/main.bf720cce.chunk.js"
   ]
 }
