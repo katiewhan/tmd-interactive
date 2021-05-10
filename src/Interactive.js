@@ -1,96 +1,198 @@
 import React from 'react';
 
+import './Interactive.css';
+
 const QuizImages = [
     {
         src: './images/transmission-slide11.png',
         credible: true,
+        explanation: 'The WHO is a reputable source to turn to for accurate information about COVID-19. Before you follow any advice from this type of content, check to see that it came from a source with the authority and expertise to make decisions about the subject, in this case the WHO about international public health. This type of file can be downloaded and edited by anyone easily, so be careful to note if the logo or message looks altered.',
     },
     {
         src: './images/rasam.jpg',
-        credible: false
+        credible: false,
+        explanation: `This is a false and misleading forwarded message advertising an "Antidote For Wuhan Virus." 
+        It claims a popular herbal soup of South Indian origin (called rasam) protected Indians living in Malaysia against COVID-19. 
+        A Google search reveals that he has a bias against modern-day medicine and does not have the authority or expertise to offer a cure for COVID-19. 
+        Always ask yourself whether the source is reputable or not, and what the motivations of the author might be?`
     },
     {
         src: './images/lungs.gif',
-        credible: false
-    },
-    {
-        src: './images/covid-garlic.jpg',
-        credible: true
+        credible: false,
+        explanation: `This is a false and misleading forwarded message that suggests that holding your breath for 30 seconds is an indicator that you do not have COVID-19. 
+        A Google search for "The Sage Group India" reveals that the creator is actually a conglomerate based in Bhopal that has enterprises in construction, education, and power. 
+        This is not a reputable or trustworthy source for information on preventing COVID-19, and the message is not scientifically or medically-backed.`
     },
     {
         src: './images/survival.png',
-        credible: false
+        credible: false,
+        explanation: `Although at first glance this forwarded message may seem factual since it includes percentages (%), 
+        the figures are inaccurate and this content has been debunked. A reverse image search leads to an article in thejournal.ie, 
+        a reputable internet publication in Ireland that also runs a fact checking operation.
+        A "survival rate" for Covid-19 did not exist when the Tweet was initially published.`
     },
     {
         src: './images/wuhan-garlic.jpg',
-        credible: false
+        credible: false,
+        explanation: `This forwarded message is false and misleading. It claims that an anonymous doctor in China has proven that boiled garlic water can cure COVID-19, 
+        and urges users to try it and pass the word on. It has been widely debunked as a hoax by several news and fact checking organizations, 
+        including The Times of India and The BBC.`
     },
-    {
-        src: './images/lemon.png',
-        credible: false
-    },
-    {
-        src: './images/fatality-rate.png',
-        credible: true
-    }
+    // {
+    //     src: './images/covid-garlic.jpg',
+    //     credible: true,
+    // },
+    // {
+    //     src: './images/lemon.png',
+    //     credible: false
+    // },
+    // {
+    //     src: './images/fatality-rate.png',
+    //     credible: true
+    // }
 ];
+
+const STARTPAGE = 0;
+const GUESSPAGE = 1;
+const SCOREPAGE = 2;
 
 class Interactive extends React.Component {
     constructor() {
         super()
         this.state = {
+            state: STARTPAGE,
             currentIndex: 0,
-            totalGuesses: 0,
             correctGuesses: 0,
-            guessed: false
+            guessed: false,
+            currentGuess: null,
         };
     }
 
     guessOnClick(credible) {
-        this.setState({ guessed: true });
-
         let correctGuesses = this.state.correctGuesses;
-        if (QuizImages[this.state.currentIndex] && QuizImages[this.state.currentIndex].credible == credible) {
+        if (QuizImages[this.state.currentIndex].credible === credible) {
             correctGuesses++;
         }
 
-        setTimeout(() => {
-            this.setState({
-                correctGuesses: correctGuesses,
-                totalGuesses: this.state.totalGuesses + 1,
-                currentIndex: this.state.currentIndex + 1,
-                guessed: false
-            });
-        }, 3000);
+        this.setState({ guessed: true, currentGuess: credible, correctGuesses: correctGuesses });
     }
 
-    renderImage() {
-        return ( this.state.currentIndex < QuizImages.length ?
-            <div className='image-wrapper'>
-                <div className={`guess-image ${this.state.guessed ? 'flip-image' : ''}`}>
-                    <img src={QuizImages[this.state.currentIndex].src}></img>
-                    <div className='image-back'>{QuizImages[this.state.currentIndex].credible ? 'CREDIBLE!' : 'NOT CREDIBLE!'}</div>
-                </div>
-                <div className={`buttons ${this.state.guessed ? 'hide-buttons' : ''}`}>
+    continueOnClick() {
+        if (this.state.currentIndex + 1 < QuizImages.length) {
+            this.setState({ currentIndex: this.state.currentIndex + 1, guessed: false });
+        } else {
+            this.setState({ state: SCOREPAGE });
+        }
+    }
+
+    shareOnClick() {
+
+    }
+
+    renderStartPage() {
+        return (
+            <div className='start-page'>
+                <div className='interactive-title background'>Can you tell credible content apart from others on WhatsApp?</div>
+                <div className='interactive-text'>We're going to show you a series of photos that had been spread on WhatsApp and see if you can recognize what information is true and false.</div>
+                <div className='interactive-button' onClick={() => this.setState({ state: GUESSPAGE })}>OK. Let's Do This.</div>
+            </div>
+        );
+    }
+
+    renderTopBar() {
+        const bars = [];
+        for (let i = 0; i < QuizImages.length; i++) {
+            if (i < this.state.currentIndex + 1) {
+                bars.push(<div key={i} className='bar solid'></div>);
+            } else {
+                bars.push(<div key={i} className='bar'></div>);
+            }
+        }
+        return (
+            <div className='top-bar'>
+                {bars}
+            </div>
+        );
+    }
+
+    renderHeading() {
+        if (!this.state.guessed) {
+            return <div className='interactive-text bold'>Is this information credible?</div>
+        } else if (QuizImages[this.state.currentIndex].credible === this.state.currentGuess) {
+            return <div className='interactive-text bold right'>Nice, that's right!</div>
+        } else {
+            return <div className='interactive-text bold wrong'>Oops, that's wrong!</div>
+        }
+    }
+
+    renderGuessButtons() {
+        if (!this.state.guessed) {
+            return (
+                <div className='buttons'>
                     <div className='guess-button credible' onClick={this.guessOnClick.bind(this, true)}>CREDIBLE</div>
                     <div className='guess-button not-credible' onClick={this.guessOnClick.bind(this, false)}>NOT CREDIBLE</div>
                 </div>
-            </div> :
-            <div className='image-wrapper'>That's all we have!</div>
+            );
+        } else {
+            return (
+                <div className='buttons'>
+                    <div className='interactive-button' onClick={this.continueOnClick.bind(this)}>Continue</div>
+                </div>
+            );
+        }
+    }
+
+    renderGuess() {
+        return (
+            <div className='quiz-guess'>
+                {this.renderTopBar()}
+                {this.renderHeading()}
+                <div className='image-wrapper'>
+                    <div className={`guess-image ${this.state.guessed ? 'flip-image' : ''}`}>
+                        <img src={QuizImages[this.state.currentIndex].src}></img>
+                        <div className='image-back'>
+                            <img src={QuizImages[this.state.currentIndex].src}></img>
+                            <div className='description'>{QuizImages[this.state.currentIndex].explanation}</div>
+                        </div>
+                    </div>
+                </div>
+                {this.renderGuessButtons()}
+            </div>
         );
     }
 
     renderScore() {
-        return ( this.state.totalGuesses > 0 ? 
-            <div>You guessed {this.state.correctGuesses} correctly out of {this.state.totalGuesses} total images!</div> : null
+        const score = ((this.state.correctGuesses / QuizImages.length) * 100).toFixed(0);
+        return (
+            <div>
+                <div className='interactive-title'>
+                    Congrats!<br></br>You guessed <mark>{QuizImages.length}</mark> times and got <mark>{this.state.correctGuesses}</mark> correct, for a score of <mark>{score}</mark> percent.
+                </div>
+                <div className='interactive-text'>
+                    While WhatsApp and other private messaging platforms have been powerful in enabling people to maintain relationships overseas and shaping mutual aid efforts prior to and during the COVID-19 crisis, they have also been misused to promote scams, conspiracy theories, digital surveillance, mob violence, and other types of abuse that sow confusion and chaos in the real world.
+                </div>
+                <div className='interactive-text'>
+                    The problem of misinformation spread on WhatsApp only accelerated with the pandemic, and it is difficult for researchers and organizations to keep track of inaccurate content circulating online, back-and-forth in multiple languages across countries with varying rates of digital literacy.
+                </div>
+                <div className='interactive-text'>
+                    We hope the activities, tips, and resources provided here empower users to detect false or misleading content on WhatsApp within their personal networks, and to take easy steps to ensure that the information they exchange with friends, family, or strangers is accurate and trustworthy — ultimately contributing to a healthier public sphere in the long run.
+                </div>
+                <div className='interactive-button' onClick={this.shareOnClick.bind(this)}>Share My Result</div>
+            </div>
         );
     }
 
     render() {
-      return <div className='interactive'>
-          {this.renderImage()}
-          {this.renderScore()}
-      </div>
+        switch(this.state.state) {
+            case STARTPAGE:
+                return this.renderStartPage();
+            case GUESSPAGE:
+                return this.renderGuess();
+            case SCOREPAGE:
+                return this.renderScore();
+            default:
+                return;
+        }
     }
 }
 

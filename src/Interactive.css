@@ -1,0 +1,116 @@
+.interactive-title {
+    font-size: 42px;
+    line-height: 50px;
+    font-weight: bold;
+
+    margin: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.interactive-title.background {
+    background-image: url(./whatsapp-logo.png);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.interactive-text {
+    font-size: 22px;
+    line-height: 25px;
+    margin: 20px;
+}
+
+.interactive-text.bold {
+    font-weight: bold;
+}
+
+.interactive-text.right {
+    color: #096734;
+}
+
+.interactive-text.wrong {
+    color: #860808;
+}
+
+.interactive-button {
+    font-size: 22px;
+    line-height: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    margin: 50px 20px;
+    padding: 10px 20px;
+    border: 4px solid black;
+    max-width: 220px;
+}
+
+.interactive-button:hover, .interactive-button:active {
+    background-color: #00D856;
+    cursor: pointer;
+}
+
+.top-bar {
+    width: calc(100% - 40px);
+    height: 5px;
+    margin: 40px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.bar {
+    height: 8px;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    flex-grow: 1;
+    background-color: #C4C4C4;
+}
+
+.bar.solid {
+    background-color: black;
+}
+
+.buttons {
+    justify-self: flex-end;
+    align-self: stretch;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.quiz-guess {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.guess-button {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 15px;
+    text-transform: uppercase;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px 20px;
+    flex: 1;
+}
+
+.guess-button.credible {
+    background: rgba(9, 177, 86, 0.2);
+}
+
+.guess-button.not-credible {
+    background: rgba(177, 9, 9, 0.2);
+}
+
+.guess-button.credible:hover, .guess-button.credible:active {
+    background: rgba(9, 177, 86, 0.6);
+    cursor: pointer;
+}
+
+.guess-button.not-credible:hover, .guess-button.not-credible:active {
+    background: rgba(177, 9, 9, 0.6);
+    cursor: pointer;
+}

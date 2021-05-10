@@ -1,5 +1,5 @@
-.App, .content, .section {
-  text-align: center;
+.App, .content {
+  text-align: left;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,35 +7,24 @@
 }
 
 .content {
-  max-width: 800px;
-}
-
-.section {
-  padding-bottom: 50px;
-}
-
-.info {
-  width: 80%;
-  margin: 20px 0;
-  padding: 20px;
-  background-color: rgba(30, 30, 30, 0.2);
+  max-width: 500px;
 }
 
 .image-wrapper {
-  width: min(90vw, 90vh);
-  height: min(90vw, 90vh);
-  background-color: rgba(30, 30, 30, 0.2);
+  background-color: #FFFFFF;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  perspective: 1000px;
+  perspective: 5000px;
+  box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.15);
 }
 
 .flip-image {
   transform: rotateY(180deg);
-  animation: fadeOut 1s ease;
-  animation-delay: 2s;
+  /* animation: fadeOut 1s ease;
+  animation-delay: 2s; */
 }
 
 .guess-image {
@@ -55,44 +44,32 @@
 .image-back {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background:  rgba(30, 30, 30);
-  color: white;
-  line-height: 2;
+  background: #FFFFFF;
   transform: rotateY(180deg);
-  /* backface-visibility: hidden; */
 }
 
-.buttons {
-  justify-self: flex-end;
-  align-self: stretch;
-  display: flex;
-  flex-direction: row;
+.flip-image .image-back {
+  background: #000000;
 }
 
-.hide-buttons {
-  visibility: none;
+.image-back img {
+  opacity: 0.2;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.guess-button {
-  flex: 1;
-  padding: 10px;
-  margin: 10px 40px;
+.description {
   color: white;
-}
-
-.guess-button:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.guess-button.credible {
-  background: green;
-}
-
-.guess-button.not-credible {
-  background: red;
+  opacity: 1;
+  padding: 20px;
+  text-align: left;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: bold;
 }
 
 @keyframes fadeOut {
