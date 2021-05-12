@@ -1,0 +1,42 @@
+.resources {
+    color: white;
+    height: max(100vh, 100%);
+    padding-bottom: 40px;
+}
+
+.resources-title {
+    font-size: 42px;
+    line-height: 50px;
+    font-weight: bold;
+    color: #09BB4F;
+
+    margin: 40px 80px;
+    padding-top: 20px;
+}
+
+.resources-heading {
+    margin: 40px;
+    color: #EC5C7F;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 50px;
+}
+
+.resources-text {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 20px 40px;
+}
+
+.resources-link {
+    color: #09BB4F;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    margin: 40px;
+}
+
+.resources-link:hover, .resources-link:active {
+    cursor: pointer;
+    text-decoration: underline;
+}

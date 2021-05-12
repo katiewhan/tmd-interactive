@@ -1,13 +1,8 @@
 import React from 'react';
 
-import './Interactive.css';
+import '../styles/Interactive.css';
 
 const QuizImages = [
-    {
-        src: './images/transmission-slide11.png',
-        credible: true,
-        explanation: 'The WHO is a reputable source to turn to for accurate information about COVID-19. Before you follow any advice from this type of content, check to see that it came from a source with the authority and expertise to make decisions about the subject, in this case the WHO about international public health. This type of file can be downloaded and edited by anyone easily, so be careful to note if the logo or message looks altered.',
-    },
     {
         src: './images/rasam.jpg',
         credible: false,
@@ -22,6 +17,11 @@ const QuizImages = [
         explanation: `This is a false and misleading forwarded message that suggests that holding your breath for 30 seconds is an indicator that you do not have COVID-19. 
         A Google search for "The Sage Group India" reveals that the creator is actually a conglomerate based in Bhopal that has enterprises in construction, education, and power. 
         This is not a reputable or trustworthy source for information on preventing COVID-19, and the message is not scientifically or medically-backed.`
+    },
+    {
+        src: './images/transmission-slide11.png',
+        credible: true,
+        explanation: 'The WHO is a reputable source to turn to for accurate information about COVID-19. Before you follow any advice from this type of content, check to see that it came from a source with the authority and expertise to make decisions about the subject, in this case the WHO about international public health. This type of file can be downloaded and edited by anyone easily, so be careful to note if the logo or message looks altered.',
     },
     {
         src: './images/survival.png',
@@ -86,7 +86,7 @@ class Interactive extends React.Component {
     }
 
     shareOnClick() {
-
+        navigator.clipboard.writeText(`I got ${this.state.correctGuesses} out of ${QuizImages.length} correct on this misinformation quiz! Check it out here: https://katiewhan.github.io/tmd-interactive/`);
     }
 
     renderStartPage() {
@@ -167,15 +167,6 @@ class Interactive extends React.Component {
             <div>
                 <div className='interactive-title'>
                     Congrats!<br></br>You guessed <mark>{QuizImages.length}</mark> times and got <mark>{this.state.correctGuesses}</mark> correct, for a score of <mark>{score}</mark> percent.
-                </div>
-                <div className='interactive-text'>
-                    While WhatsApp and other private messaging platforms have been powerful in enabling people to maintain relationships overseas and shaping mutual aid efforts prior to and during the COVID-19 crisis, they have also been misused to promote scams, conspiracy theories, digital surveillance, mob violence, and other types of abuse that sow confusion and chaos in the real world.
-                </div>
-                <div className='interactive-text'>
-                    The problem of misinformation spread on WhatsApp only accelerated with the pandemic, and it is difficult for researchers and organizations to keep track of inaccurate content circulating online, back-and-forth in multiple languages across countries with varying rates of digital literacy.
-                </div>
-                <div className='interactive-text'>
-                    We hope the activities, tips, and resources provided here empower users to detect false or misleading content on WhatsApp within their personal networks, and to take easy steps to ensure that the information they exchange with friends, family, or strangers is accurate and trustworthy — ultimately contributing to a healthier public sphere in the long run.
                 </div>
                 <div className='interactive-button' onClick={this.shareOnClick.bind(this)}>Share My Result</div>
             </div>

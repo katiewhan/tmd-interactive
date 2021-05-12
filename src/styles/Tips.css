@@ -1,0 +1,72 @@
+.tips {
+    color: white;
+    height: max(100vh, 100%);
+    padding-bottom: 40px;
+}
+
+.tips-title {
+    font-size: 42px;
+    line-height: 50px;
+    font-weight: bold;
+
+    margin: 40px 80px;
+    padding-top: 20px;
+}
+
+.tips-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 30px;
+}
+
+.tips-button img {
+    width: 100px;
+    margin: 10px;
+}
+
+.tips-button:hover, .tips-button:active {
+    opacity: 0.6;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tips-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    
+    font-size: 48px;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+.tips-heading img {
+    width: 200px;
+    margin: 10px;
+}
+
+.tips-subheading {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 30px;
+    width: 80%;
+    margin: 0 10%;
+    padding: 20px 0;
+}
+
+.tips-text {
+    font-size: 20px;
+    line-height: 30px;
+    margin: 20px 40px;
+}
