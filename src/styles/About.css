@@ -1,0 +1,8 @@
+.about-link {
+    color: #09BB4F;
+}
+
+.about-link:hover, .about-link:active {
+    text-decoration: underline;
+    cursor: pointer;
+}
